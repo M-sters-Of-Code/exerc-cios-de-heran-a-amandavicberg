@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SistemaBancario.Model
+﻿namespace SistemaBancario.Model
 {
     public class Conta
     {
@@ -26,6 +19,13 @@ namespace SistemaBancario.Model
                 throw new ArgumentNullException("O cliente não pode ser nulo.");
             Titular = cliente;
         }
+        
+        public Conta(Cliente cliente, decimal saldo)
+        {
+            Saldo = saldo;
+            Titular = cliente;
+        }
+
         public virtual void Depositar(decimal valor)
         {
             if (valor <= 0)
