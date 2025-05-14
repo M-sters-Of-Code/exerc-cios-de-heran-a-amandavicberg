@@ -10,10 +10,14 @@
         {
         }
 
+        public ContaCaixinha(decimal saldoInicial) : base(saldoInicial)
+        {
+        }
+
         public override void Depositar(decimal valor)
         {
             if (valor < 1.00m)
-                throw new ArgumentException("Depósitos inferiores a R$1,00 não são permitidos.");
+                throw new ArgumentOutOfRangeException("Depósitos inferiores a R$1,00 não são permitidos.");
 
             base.Depositar(valor + 1.00m); // Bônus de R$1,00
         }
